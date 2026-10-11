@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Los 70 de Susy</title>
-<meta name="description" content="Festejamos los 70 de Susy · Sábado 7 de noviembre, de 12 a 19 hs · Ruta 95, calle Las Madreselvas (Zona San Luis, Salta)">
+<title>Los 70 de Susana</title>
+<meta name="description" content="Te invitamos a festejar los 70 de Susana · Sábado 7 de noviembre, de 12 a 19 hs · Ruta 95, calle Las Madreselvas (Zona San Luis, Salta)">
 <meta name="theme-color" content="#482728">
-<meta property="og:title" content="Los 70 de Susy 🎉">
+<meta property="og:title" content="Te invitamos a festejar los 70 de Susana 🎉">
 <meta property="og:description" content="Sábado 7 de noviembre, de 12 a 19 hs. ¡Te esperamos!">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23482728'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='32' font-weight='900' font-style='italic' text-anchor='middle' fill='%23f3b391'%3E70%3C/text%3E%3C/svg%3E">
@@ -34,10 +34,13 @@ a{color:var(--peach)}
 .content{position:relative;z-index:1;display:flex;flex-direction:column;gap:16px;padding:36px 22px calc(28px + env(safe-area-inset-bottom))}
 
 .head{display:flex;flex-direction:column;align-items:center;text-align:center}
-.name{position:relative;display:flex;flex-direction:column;align-items:center;margin-top:2px}
-.name .big{font-size:124px;font-weight:900;line-height:.95;letter-spacing:-5px;color:var(--peach);text-shadow:0 6px 0 var(--berry),0 18px 40px rgba(20,6,8,.5)}
-.underline path{stroke-dasharray:260;stroke-dashoffset:260;animation:drawLoop 6s ease-out .3s infinite}
-.age{position:relative;display:flex;align-items:center;justify-content:center;gap:14px;height:150px}
+.kicker{font-size:15px;font-weight:600;letter-spacing:3.5px;text-transform:uppercase;color:var(--tea)}
+.name{position:relative;display:flex;flex-direction:column;align-items:center}
+.name .line{display:flex;align-items:baseline;gap:10px}
+.name .big{font-size:78px;font-weight:900;line-height:1;letter-spacing:-3px;color:var(--peach);text-shadow:0 5px 0 var(--berry),0 16px 36px rgba(20,6,8,.5)}
+.underline{margin-top:-2px}
+.underline path{stroke-dasharray:260;stroke-dashoffset:260;animation:drawLoop 6s ease-out .7s infinite}
+.age{position:relative;display:flex;align-items:center;justify-content:center;gap:14px;height:160px}
 .age .small{font-style:italic;font-size:24px;font-weight:700;line-height:1.05;color:var(--mint);text-align:right}
 .age .num{position:relative;font-style:italic;font-size:138px;font-weight:800;line-height:1;letter-spacing:-5px;color:var(--mint);text-shadow:0 6px 0 var(--berry),0 18px 40px rgba(20,6,8,.5);padding-right:8px}
 .ring{position:absolute;left:50%;top:50%;width:168px;height:168px;margin:-84px 0 0 -88px;animation:spin 30s linear infinite}
@@ -81,10 +84,11 @@ a{color:var(--peach)}
 
 /* entradas */
 .rc,.r4,.r5,.r6,.r7{opacity:0;animation:rise .8s cubic-bezier(.2,.8,.2,1) forwards}
-/* Susy y 70 en loop */
-.r2,.r3{opacity:0}
-.r2{animation:popLoop 6s cubic-bezier(.2,.8,.2,1) .3s infinite}
-.r3{animation:riseLoop 6s cubic-bezier(.2,.8,.2,1) .7s infinite}
+/* encabezado en loop */
+.r1,.r2,.r3{opacity:0}
+.r1{animation:riseLoop 6s cubic-bezier(.2,.8,.2,1) 0s infinite}
+.r3{animation:popLoop 6s cubic-bezier(.2,.8,.2,1) .3s infinite}
+.r2{animation:riseLoop 6s cubic-bezier(.2,.8,.2,1) .7s infinite}
 .rc{animation-delay:.85s}.r4{animation-delay:.95s}.r5{animation-delay:1.15s}.r6{animation-delay:1.35s}.r7{animation-delay:1.55s}
 .tw1{animation:twinkle 2.6s ease-in-out infinite}
 .tw2{animation:twinkle 3.2s ease-in-out .8s infinite}
@@ -105,13 +109,14 @@ a{color:var(--peach)}
 @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
 
 @media (max-width:360px){
-  .name .big{font-size:108px}
+  .name .big{font-size:66px}
   .age .num{font-size:120px}
+  .kicker{font-size:14px;letter-spacing:2.5px}
   .content{padding-left:16px;padding-right:16px}
 }
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important}
-  .r2,.r3,.rc,.r4,.r5,.r6,.r7{opacity:1}
+  .r1,.r2,.r3,.rc,.r4,.r5,.r6,.r7{opacity:1}
   .underline path{stroke-dashoffset:0}
 }
 </style>
@@ -132,18 +137,21 @@ a{color:var(--peach)}
 
   <main class="content">
 
-    <header class="head" style="padding-top:8px">
-      <div class="name r2">
-        <h1 class="big serif" style="margin:0">Susy</h1>
-        <svg class="underline" width="230" height="20" viewBox="0 0 170 18" aria-hidden="true"><path d="M4 12 C 40 2, 90 4, 120 9 S 160 14, 166 6" fill="none" stroke="#d5ecd4" stroke-width="3" stroke-linecap="round"/></svg>
-      </div>
-      <div class="age r3">
-        <div class="small serif">cumple<br>sus</div>
-        <div class="num serif">
-          <svg class="ring" viewBox="0 0 230 230" aria-hidden="true"><circle cx="115" cy="115" r="104" fill="none" stroke="#d5ecd4" stroke-opacity=".45" stroke-width="2" stroke-dasharray="2 9" stroke-linecap="round"/><circle cx="115" cy="11" r="6" fill="#f3b391"/><circle cx="19" cy="150" r="4.5" fill="#d5ecd4"/></svg>
-          <span style="position:relative">70</span>
-        </div>
-      </div>
+    <header class="head">
+      <h1 style="margin:0;font:inherit;display:flex;flex-direction:column;align-items:center">
+        <span class="kicker serif r1">Te invitamos a festejar</span>
+        <span class="age r3">
+          <span class="small serif">los</span>
+          <span class="num serif">
+            <svg class="ring" viewBox="0 0 230 230" aria-hidden="true"><circle cx="115" cy="115" r="104" fill="none" stroke="#d5ecd4" stroke-opacity=".45" stroke-width="2" stroke-dasharray="2 9" stroke-linecap="round"/><circle cx="115" cy="11" r="6" fill="#f3b391"/><circle cx="19" cy="150" r="4.5" fill="#d5ecd4"/></svg>
+            <span style="position:relative">70</span>
+          </span>
+        </span>
+        <span class="name r2">
+          <span class="line"><span class="small serif" style="font-style:italic;font-size:26px;font-weight:700;color:var(--mint)">de</span><span class="big serif">Susana</span></span>
+          <svg class="underline" width="230" height="20" viewBox="0 0 170 18" aria-hidden="true"><path d="M4 12 C 40 2, 90 4, 120 9 S 160 14, 166 6" fill="none" stroke="#d5ecd4" stroke-width="3" stroke-linecap="round"/></svg>
+        </span>
+      </h1>
     </header>
 
     <section class="glass card rc" style="padding:14px 12px;gap:10px" aria-label="Cuenta regresiva">
