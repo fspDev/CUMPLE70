@@ -34,10 +34,9 @@ a{color:var(--peach)}
 .content{position:relative;z-index:1;display:flex;flex-direction:column;gap:16px;padding:36px 22px calc(28px + env(safe-area-inset-bottom))}
 
 .head{display:flex;flex-direction:column;align-items:center;text-align:center}
-.kicker{font-size:15px;font-weight:600;letter-spacing:5px;text-transform:uppercase;color:var(--tea)}
 .name{position:relative;display:flex;flex-direction:column;align-items:center;margin-top:2px}
 .name .big{font-size:124px;font-weight:900;line-height:.95;letter-spacing:-5px;color:var(--peach);text-shadow:0 6px 0 var(--berry),0 18px 40px rgba(20,6,8,.5)}
-.underline path{stroke-dasharray:260;stroke-dashoffset:260;animation:draw 1.1s ease-out 1s forwards}
+.underline path{stroke-dasharray:260;stroke-dashoffset:260;animation:drawLoop 6s ease-out .3s infinite}
 .age{position:relative;display:flex;align-items:center;justify-content:center;gap:14px;height:150px}
 .age .small{font-style:italic;font-size:24px;font-weight:700;line-height:1.05;color:var(--mint);text-align:right}
 .age .num{position:relative;font-style:italic;font-size:138px;font-weight:800;line-height:1;letter-spacing:-5px;color:var(--mint);text-shadow:0 6px 0 var(--berry),0 18px 40px rgba(20,6,8,.5);padding-right:8px}
@@ -81,10 +80,12 @@ a{color:var(--peach)}
 .foot strong{color:var(--ink);font-weight:700}
 
 /* entradas */
-.r1,.r2,.r3,.rc,.r4,.r5,.r6,.r7{opacity:0;animation:rise .8s cubic-bezier(.2,.8,.2,1) forwards}
-.r1{animation-delay:.1s}
-.r2{animation:pop 1s cubic-bezier(.2,.8,.2,1) .3s forwards}
-.r3{animation-delay:.7s}.rc{animation-delay:.85s}.r4{animation-delay:.95s}.r5{animation-delay:1.15s}.r6{animation-delay:1.35s}.r7{animation-delay:1.55s}
+.rc,.r4,.r5,.r6,.r7{opacity:0;animation:rise .8s cubic-bezier(.2,.8,.2,1) forwards}
+/* Susy y 70 en loop */
+.r2,.r3{opacity:0}
+.r2{animation:popLoop 6s cubic-bezier(.2,.8,.2,1) .3s infinite}
+.r3{animation:riseLoop 6s cubic-bezier(.2,.8,.2,1) .7s infinite}
+.rc{animation-delay:.85s}.r4{animation-delay:.95s}.r5{animation-delay:1.15s}.r6{animation-delay:1.35s}.r7{animation-delay:1.55s}
 .tw1{animation:twinkle 2.6s ease-in-out infinite}
 .tw2{animation:twinkle 3.2s ease-in-out .8s infinite}
 .tw3{animation:twinkle 2.2s ease-in-out 1.4s infinite}
@@ -97,7 +98,9 @@ a{color:var(--peach)}
 @keyframes pop{0%{opacity:0;transform:scale(.6) rotate(-8deg)}60%{opacity:1;transform:scale(1.06) rotate(2deg)}100%{opacity:1;transform:scale(1) rotate(0)}}
 @keyframes spin{to{transform:rotate(360deg)}}
 @keyframes twinkle{0%,100%{opacity:.2;transform:scale(.6) rotate(0)}50%{opacity:1;transform:scale(1.1) rotate(45deg)}}
-@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes popLoop{0%{opacity:0;transform:scale(.6) rotate(-8deg)}10%{opacity:1;transform:scale(1.06) rotate(2deg)}17%,84%{opacity:1;transform:scale(1) rotate(0)}94%,100%{opacity:0;transform:scale(.85) rotate(4deg)}}
+@keyframes riseLoop{0%{opacity:0;transform:translateY(26px)}13%,84%{opacity:1;transform:translateY(0)}94%,100%{opacity:0;transform:translateY(-14px)}}
+@keyframes drawLoop{0%,12%{stroke-dashoffset:260}30%,100%{stroke-dashoffset:0}}
 @keyframes shine{0%{transform:translateX(-120%) skewX(-20deg)}60%,100%{transform:translateX(320%) skewX(-20deg)}}
 @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
 
@@ -108,7 +111,7 @@ a{color:var(--peach)}
 }
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important}
-  .r1,.r2,.r3,.rc,.r4,.r5,.r6,.r7{opacity:1}
+  .r2,.r3,.rc,.r4,.r5,.r6,.r7{opacity:1}
   .underline path{stroke-dashoffset:0}
 }
 </style>
@@ -129,8 +132,7 @@ a{color:var(--peach)}
 
   <main class="content">
 
-    <header class="head">
-      <div class="kicker serif r1">Festejamos a</div>
+    <header class="head" style="padding-top:8px">
       <div class="name r2">
         <h1 class="big serif" style="margin:0">Susy</h1>
         <svg class="underline" width="230" height="20" viewBox="0 0 170 18" aria-hidden="true"><path d="M4 12 C 40 2, 90 4, 120 9 S 160 14, 166 6" fill="none" stroke="#d5ecd4" stroke-width="3" stroke-linecap="round"/></svg>
